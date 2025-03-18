@@ -1,37 +1,56 @@
-name: Build and Deploy Documentation
+name: Build and Deploy
 
 on:
   push:
     branches:
-      - main  # O la rama que usas
+      - main
 
 jobs:
   build:
-    runs-on: ubuntu-latest  # Usamos el entorno Ubuntu en GitHub Actions
-
+    runs-on: ubuntu-24.04
     steps:
-      - name: Check out repository
+      - name: Check out the repository
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
 
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '16'
+          node-version: 16
 
       - name: Install Retype
         run: |
-          npm install -g retype  # Instalar Retype globalmente dentro de GitHub Actions
+          npm install -g retype
 
       - name: Verify Retype installation
         run: |
-          retype --version  # Verificar que Retype está instalado correctamente
+          retype --version
 
-      - name: Build documentation
+  deploy:
+    runs-on: ubuntu-24.04
+    needs: build
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16
+
+      - name: Install Retype
         run: |
-          retype build  # Generar la documentación con Retype
+          npm install -g retype
+
+      - name: Verify Retype installation
+        run: |
+          retype --version
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          deploy_key: ${{ secrets.DEPLOY_KEY }}  # Usamos una clave de despliegue desde los secrets
-          publish_dir: ./retype-output  # Carpeta donde se genera la documentación para publicar
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
