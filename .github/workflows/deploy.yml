@@ -18,22 +18,21 @@ jobs:
         with:
           node-version: '16'
 
-      - name: Verify npm and Node.js installation
-        run: |
-          npm --version
-          node --version
-
       - name: Install dependencies
         run: |
-          npm install -g retype
-          
+          npm install -g retype  # Instalar retype globalmente
+
+      - name: Add npm global bin to PATH
+        run: |
+          echo "/home/runner/.npm-global/bin" >> $GITHUB_PATH  # Añadir el directorio de instalación global al PATH
+
       - name: Verify Retype installation
         run: |
-          retype --version  # Este comando debería devolver la versión de Retype si se ha instalado correctamente.
+          retype --version  # Verificar que Retype esté instalado y accesible
 
       - name: Build documentation
         run: |
-          retype build
+          retype build  # Ejecutar el comando de Retype
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
