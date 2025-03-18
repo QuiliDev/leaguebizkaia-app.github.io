@@ -1,0 +1,33 @@
+name: Build and Deploy Documentation
+
+on:
+  push:
+    branches:
+      - main  # O la rama que usas para tu documentación
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+
+      - name: Install dependencies
+        run: |
+          npm install -g retype
+
+      - name: Build documentation
+        run: |
+          retype build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.DEPLOY_KEY }}
+          publish_dir: ./retype-output
