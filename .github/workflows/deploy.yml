@@ -18,9 +18,18 @@ jobs:
         with:
           node-version: '16'
 
+      - name: Verify npm and Node.js installation
+        run: |
+          npm --version
+          node --version
+
       - name: Install dependencies
         run: |
           npm install -g retype
+          
+      - name: Verify Retype installation
+        run: |
+          retype --version  # Este comando debería devolver la versión de Retype si se ha instalado correctamente.
 
       - name: Build documentation
         run: |
@@ -31,3 +40,4 @@ jobs:
         with:
           deploy_key: ${{ secrets.DEPLOY_KEY }}
           publish_dir: ./retype-output
+
