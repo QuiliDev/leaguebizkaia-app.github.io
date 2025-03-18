@@ -3,7 +3,7 @@ name: Build and Deploy Documentation
 on:
   push:
     branches:
-      - main  # O la rama que usas para tu documentación
+      - main  # O la rama que uses
 
 jobs:
   build:
@@ -20,23 +20,14 @@ jobs:
 
       - name: Install dependencies
         run: |
-          npm install -g retype  # Instalar retype globalmente
-
-      - name: Add npm global bin to PATH
-        run: |
-          echo "/home/runner/.npm-global/bin" >> $GITHUB_PATH  # Añadir el directorio de instalación global al PATH
-
-      - name: Verify Retype installation
-        run: |
-          retype --version  # Verificar que Retype esté instalado y accesible
+          npm install retype  # Instalar retype de manera local
 
       - name: Build documentation
         run: |
-          retype build  # Ejecutar el comando de Retype
+          npx retype build  # Ejecutar retype usando npx
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           deploy_key: ${{ secrets.DEPLOY_KEY }}
           publish_dir: ./retype-output
-
