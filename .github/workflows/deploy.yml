@@ -22,9 +22,10 @@ jobs:
       - name: Install Retype
         run: |
           npm install -g retype
-
+          
       - name: Verify Retype installation
         run: |
+          which retype
           retype --version
 
   deploy:
@@ -44,9 +45,10 @@ jobs:
       - name: Install Retype
         run: |
           npm install -g retype
-
+          
       - name: Verify Retype installation
         run: |
+          which retype
           retype --version
 
       - name: Deploy to GitHub Pages
