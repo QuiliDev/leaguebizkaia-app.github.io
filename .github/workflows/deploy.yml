@@ -19,19 +19,19 @@ jobs:
         with:
           node-version: 16
 
-      - name: Check npm version
-        run: |
-          npm --version
-
       - name: Install Retype
         run: |
           npm install -g retype
           
+      - name: Build the site with Retype
+        run: |
+          retype build  # Asegúrate de que este comando sea el correcto para tu proyecto
+
       - name: Verify Retype installation
         run: |
           which retype || echo "Retype not found"
           retype --version || echo "Retype version command failed"
-          
+
   deploy:
     runs-on: ubuntu-24.04
     needs: build
@@ -41,26 +41,8 @@ jobs:
         with:
           fetch-depth: 1
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: 16
-
-      - name: Check npm version
-        run: |
-          npm --version
-
-      - name: Install Retype
-        run: |
-          npm install -g retype
-          
-      - name: Verify Retype installation
-        run: |
-          which retype || echo "Retype not found"
-          retype --version || echo "Retype version command failed"
-
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
+          publish_dir: ./public  # Cambia esto según el directorio que genera el build de Retype
