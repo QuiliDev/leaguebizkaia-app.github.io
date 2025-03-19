@@ -31,7 +31,11 @@ jobs:
         run: |
           which retype || echo "Retype not found"
           retype --version || echo "Retype version command failed"
-          
+
+      - name: Verify .retype directory
+        run: |
+          ls -l .retype || echo ".retype directory does not exist"
+
   deploy:
     runs-on: ubuntu-24.04
     needs: build
@@ -59,8 +63,12 @@ jobs:
           which retype || echo "Retype not found"
           retype --version || echo "Retype version command failed"
 
+      - name: Verify .retype directory before deploy
+        run: |
+          ls -l .retype || echo ".retype directory does not exist"
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public 
+          publish_dir: .retype
