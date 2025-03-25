@@ -2,10 +2,16 @@ input: .
 output: .retype
 url: # Add your website address here
 branding:
-  title: Project Name
-  label: Docs
+  title: LeagueBizkaiaApp Documentación
+  label: Reto3
 links:
-- text: Getting Started
-  link: https://retype.com/guides/getting-started/
+  - text: RetypeGuia de uso
+    link: https://retype.com/guides/getting-started/
+  - text: Documentación DB
+    link: /docs/db/index.html
+  - text: Documentación APP
+    link: /docs/app/index.html
+  - text: Entornos de desarrollo
+    link: /docs/test/index.html
 footer:
   copyright: "&copy; Copyright {{ year }}. All rights reserved."
