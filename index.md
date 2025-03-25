@@ -225,25 +225,249 @@ DELIMITER ;
 
 __-- Llamadas para probar los procedimientos__
 ![Texto alternativo](./imagenes/imagen10.jpg)
+
 ![Texto alternativo](./imagenes/imagen11.jpg)
-
-
- 
 
 
 
 ### Procedimientos  con manejo de excepciones
 
 
+-- Procedimiento 6: Inserción de un nuevo jugador
 
+-- Código del Procedimiento:
 
+```sql
+DELIMITER //
+CREATE PROCEDURE insertar_jugador(
+    IN p_Jug_id INT,
+    IN p_Jug_nombre_completo VARCHAR(255),
+    IN p_Jug_fecha_nacimiento DATE,
+    IN p_Jug_nacionalidad VARCHAR(255),
+    IN p_Jug_dorsal SMALLINT,
+    IN p_Jug_posicion VARCHAR(255),
+    IN p_Jug_IDEquipo INT
+)
+BEGIN
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION
+    BEGIN
+        ROLLBACK;
+        SELECT 'Error al insertar el jugador';
+    END;
+    START TRANSACTION;
+    INSERT INTO Jugadores (Jug_id, Jug_nombre_completo, Jug_fecha_nacimiento, Jug_nacionalidad, Jug_dorsal, Jug_posicion, Jug_IDEquipo)
+    VALUES (p_Jug_id, p_Jug_nombre_completo, p_Jug_fecha_nacimiento, p_Jug_nacionalidad, p_Jug_dorsal, p_Jug_posicion, p_Jug_IDEquipo);
+    COMMIT;
+    SELECT 'Jugador insertado correctamente';
+END //
+```
 
+__-- Llamadas para probar los procedimientos__
+![Texto alternativo](./imagenes/imagen10.jpg)
+
+-- Procedimiento 7: Borrado de un jugador
+
+-- Código del Procedimiento:
+
+```sql
+CREATE PROCEDURE borrar_jugador(IN p_Jug_id INT)
+BEGIN
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION
+    BEGIN
+        ROLLBACK;
+        SELECT 'Error al borrar el jugador';
+    END;
+    START TRANSACTION;
+    DELETE FROM Jugadores WHERE Jug_id = p_Jug_id;
+    COMMIT;
+    SELECT 'Jugador borrado correctamente';
+END //
+```
+
+__-- Llamadas para probar los procedimientos__
+![Texto alternativo](./imagenes/imagen10.jpg)
+
+-- Procedimiento 8: Modificación del nombre de un equipo
+
+-- Código del Procedimiento:
+
+```sql
+CREATE PROCEDURE modificar_nombre_equipo(
+    IN p_Equ_id INT,
+    IN p_NuevoNombre VARCHAR(255)
+)
+BEGIN
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION
+    BEGIN
+        ROLLBACK;
+        SELECT 'Error al modificar el nombre del equipo';
+    END;
+    START TRANSACTION;
+    UPDATE Equipos SET Equ_nombre = p_NuevoNombre WHERE Equ_id = p_Equ_id;
+    COMMIT;
+    SELECT 'Nombre del equipo modificado correctamente';
+END //
+```
+
+__-- Llamadas para probar los procedimientos__
+![Texto alternativo](./imagenes/imagen10.jpg)
+
+-- Procedimiento 9: Inserción de un nuevo partido
+
+-- Código del Procedimiento:
+
+```sql
+CREATE PROCEDURE insertar_partido(
+    IN p_Part_id INT,
+    IN p_Resultado VARCHAR(10),
+    IN p_FechayHora DATETIME,
+    IN p_Jor_id INT,
+    IN p_Equ_idLoc INT,
+    IN p_Equ_idVis INT
+)
+BEGIN
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION
+    BEGIN
+        ROLLBACK;
+        SELECT 'Error al insertar el partido';
+    END;
+    START TRANSACTION;
+    INSERT INTO Partidos (Part_id, Resultado, FechayHora, Jor_id, Equ_idLoc, Equ_idVis)
+    VALUES (p_Part_id, p_Resultado, p_FechayHora, p_Jor_id, p_Equ_idLoc, p_Equ_idVis);
+    COMMIT;
+    SELECT 'Partido insertado correctamente';
+END //
+```
+
+__-- Llamadas para probar los procedimientos__
+![Texto alternativo](./imagenes/imagen10.jpg)
+
+-- Procedimiento 10: Inserción de un nuevo partido
+
+-- Código del Procedimiento:
+
+```sql
+CREATE PROCEDURE borrar_equipo(IN p_Equ_id INT)
+BEGIN
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION
+    BEGIN
+        ROLLBACK;
+        SELECT 'Error al borrar el equipo';
+    END;
+    START TRANSACTION;
+    DELETE FROM Equipos WHERE Equ_id = p_Equ_id;
+    COMMIT;
+    SELECT 'Equipo borrado correctamente';
+END //
+```
+
+__-- Llamadas para probar los procedimientos__
+![Texto alternativo](./imagenes/imagen10.jpg)
+
+-- Procedimiento 11: Modificación de la fecha de nacimiento de un jugador
+
+-- Código del Procedimiento:
+
+```sql
+CREATE PROCEDURE modificar_fecha_nacimiento_jugador(
+    IN p_Jug_id INT,
+    IN p_NuevaFechaNacimiento DATE
+)
+BEGIN
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION
+    BEGIN
+        ROLLBACK;
+        SELECT 'Error al modificar la fecha de nacimiento del jugador';
+    END;
+    START TRANSACTION;
+    UPDATE Jugadores SET Jug_fecha_nacimiento = p_NuevaFechaNacimiento WHERE Jug_id = p_Jug_id;
+    COMMIT;
+    SELECT 'Fecha de nacimiento del jugador modificada correctamente';
+END //
+```
+
+__-- Llamadas para probar los procedimientos__
+![Texto alternativo](./imagenes/imagen10.jpg)
+
+-- Procedimiento 12: Inserción de un nuevo árbitro
+
+-- Código del Procedimiento:
+
+```sql
+CREATE PROCEDURE insertar_arbitro(
+    IN p_Arb_id INT,
+    IN p_Nombre VARCHAR(255),
+    IN p_DNI VARCHAR(10),
+    IN p_FechaNacimiento DATE,
+    IN p_Part_id INT
+)
+BEGIN
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION
+    BEGIN
+        ROLLBACK;
+        SELECT 'Error al insertar el árbitro';
+    END;
+    START TRANSACTION;
+    INSERT INTO Arbitros (Arb_id, Nombre, DNI, FechaNacimiento, Part_id)
+    VALUES (p_Arb_id, p_Nombre, p_DNI, p_FechaNacimiento, p_Part_id);
+    COMMIT;
+    SELECT 'Árbitro insertado correctamente';
+END //
+```
+
+__-- Llamadas para probar los procedimientos__
+![Texto alternativo](./imagenes/imagen10.jpg)
+
+-- Procedimiento 13: Borrado de un árbitro
+
+-- Código del Procedimiento:
+
+```sql
+CREATE PROCEDURE borrar_arbitro(IN p_Arb_id INT)
+BEGIN
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION
+    BEGIN
+        ROLLBACK;
+        SELECT 'Error al borrar el árbitro';
+    END;
+    START TRANSACTION;
+    DELETE FROM Arbitros WHERE Arb_id = p_Arb_id;
+    COMMIT;
+    SELECT 'Árbitro borrado correctamente';
+END //
+```
+
+__-- Llamadas para probar los procedimientos__
+![Texto alternativo](./imagenes/imagen10.jpg)
+
+-- Procedimiento 14: Modificación del resultado de un partido
+
+-- Código del Procedimiento:
+
+```sql
+CREATE PROCEDURE modificar_resultado_partido(
+    IN p_Part_id INT,
+    IN p_NuevoResultado VARCHAR(10)
+)
+BEGIN
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION
+    BEGIN
+        ROLLBACK;
+        SELECT 'Error al modificar el resultado del partido';
+    END;
+    START TRANSACTION;
+    UPDATE Partidos SET Resultado = p_NuevoResultado WHERE Part_id = p_Part_id;
+    COMMIT;
+    SELECT 'Resultado del partido modificado correctamente';
+END //
+DELIMITER ;
+```
 
 
 
 ### Creación de procedimientos con cursores
  	
--- Procedimiento 6: Listar todos los equipos con sus estadísticas
+-- Procedimiento 15: Listar todos los equipos con sus estadísticas
 
 -- Código del Procedimiento:
 
@@ -282,7 +506,7 @@ __-- Llamadas para probar los procedimientos__
 ![Texto alternativo](./imagenes/imagen12.jpg)
 
 
--- Procedimiento 7: Obtener el historial de temporadas y cantidad de equipos por temporada
+-- Procedimiento 16: Obtener el historial de temporadas y cantidad de equipos por temporada
 
 -- Código del Procedimiento:
 
@@ -319,7 +543,7 @@ __-- Llamadas para probar los procedimientos__
 ![Texto alternativo](./imagenes/imagen13.jpg)
 
 
--- Procedimiento 8: Consulta compleja con JOIN - Mostrar los máximos goleadores de cada equipo
+-- Procedimiento 17: Consulta compleja con JOIN - Mostrar los máximos goleadores de cada equipo
 
 -- Código del Procedimiento:
 
@@ -358,7 +582,7 @@ __-- Llamadas para probar los procedimientos__
 ![Texto alternativo](./imagenes/imagen14.jpg)
 
 
--- Procedimiento 9: Consulta compleja con JOIN - Listar temporadas con sus equipos asociados
+-- Procedimiento 18: Consulta compleja con JOIN - Listar temporadas con sus equipos asociados
 
 -- Código del Procedimiento:
 
@@ -397,7 +621,7 @@ __-- Llamadas para probar los procedimientos__
 
 ### Creación de funciones con diferentes estructuras de control, cursores y excepciones
 
--- Funcion 1: 
+-- Funcion 1: calcula el promedio de puntos por partido de un equipo específico.
 
 -- Código de la Funcion:
 
@@ -433,7 +657,7 @@ __-- Llamadas para probar los procedimientos__
 ![Texto alternativo](./imagenes/imagen16.jpg)
 
 
--- Funcion 2: 
+-- Funcion 2: cuenta cuántos jugadores de un equipo ocupan una determinada posición.
 
 -- Código de la Funcion:
 
@@ -478,7 +702,7 @@ __-- Llamadas para probar los procedimientos__
 ![Texto alternativo](./imagenes/imagen17.jpg)
 
 
--- Funcion 3: 
+-- Funcion 3: calcula la diferencia total de sets ganados y perdidos por un equipo en todos los partidos en los que ha participado.
 
 -- Código de la Funcion:
 
