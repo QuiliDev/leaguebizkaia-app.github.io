@@ -531,12 +531,43 @@ __-- Llamadas para probar los procedimientos__
 ## Creacion de vistas
 
 
+__Vista para obtener un resumen de todas las temporadas__
+CREATE VIEW Vista_Temporadas AS
+SELECT Tem_id, Tem_nombre, Tem_cantidad_jornadas, Tem_cantidad_equipos, 
+       CASE 
+           WHEN Tem_finalizado = TRUE THEN 'Finalizada'
+           WHEN Tem_iniciado = TRUE THEN 'En Curso'
+           ELSE 'Pendiente'
+       END AS Estado
+FROM Temporadas;
+
+__-- Llamadas para probar los procedimientos__
+![Texto alternativo](./imagenes/imagen21.jpg)
+
+__Vista para obtener las jornadas con el estado y su temporada asociada__
+CREATE VIEW Vista_Jornadas AS
+SELECT J.Jor_id, J.Jor_jugado, T.Tem_nombre AS Temporada
+FROM Jornadas J
+JOIN Temporadas T ON J.Jor_id_temporada = T.Tem_id;
+
+__-- Llamadas para probar los procedimientos__
+![Texto alternativo](./imagenes/imagen22.jpg)
+
+__Vista para obtener los registros de cambios__
+CREATE VIEW Vista_Logs AS
+SELECT Log_id, Log_fecha, Log_accion, Log_detalle
+FROM Logs
+ORDER BY Log_fecha DESC;
+
+__-- Llamadas para probar los procedimientos__
+![Texto alternativo](./imagenes/imagen23.jpg)
 
 
 
 ## Creacion de Triggers
 
--- Crear tabla de logs para registrar cambios
+
+__Crear tabla de logs para registrar cambios__
 CREATE TABLE Logs (
     Log_id INT PRIMARY KEY AUTO_INCREMENT,
     Log_fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -544,42 +575,48 @@ CREATE TABLE Logs (
     Log_detalle TEXT
 );
 
--- Trigger para registrar la creación de una temporada
+__Trigger para registrar la creación de una temporada__
 CREATE TRIGGER after_insert_temporada
 AFTER INSERT ON Temporadas
 FOR EACH ROW
 INSERT INTO Logs (Log_accion, Log_detalle)
 VALUES ('Creación de Temporada', CONCAT('Se creó la temporada ', NEW.Tem_nombre, ' con ID ', NEW.Tem_id));
 
--- Trigger para registrar cambios en una temporada
+__-- Llamadas para probar los procedimientos__
+![Texto alternativo](./imagenes/imagen19.jpg)
+
+__Trigger para registrar cambios en una temporada__
 CREATE TRIGGER after_update_temporada
 AFTER UPDATE ON Temporadas
 FOR EACH ROW
 INSERT INTO Logs (Log_accion, Log_detalle)
 VALUES ('Modificación de Temporada', CONCAT('Se modificó la temporada ', OLD.Tem_nombre, ' con ID ', OLD.Tem_id));
 
--- Trigger para registrar eliminación de una temporada
+__Trigger para registrar eliminación de una temporada__
 CREATE TRIGGER after_delete_temporada
 AFTER DELETE ON Temporadas
 FOR EACH ROW
 INSERT INTO Logs (Log_accion, Log_detalle)
 VALUES ('Eliminación de Temporada', CONCAT('Se eliminó la temporada ', OLD.Tem_nombre, ' con ID ', OLD.Tem_id));
 
--- Trigger para registrar la creación de una jornada
+__Trigger para registrar la creación de una jornada__
 CREATE TRIGGER after_insert_jornada
 AFTER INSERT ON Jornadas
 FOR EACH ROW
 INSERT INTO Logs (Log_accion, Log_detalle)
 VALUES ('Creación de Jornada', CONCAT('Se creó la jornada con ID ', NEW.Jor_id, ' en la temporada ', NEW.Jor_id_temporada));
 
--- Trigger para registrar cambios en una jornada
+__-- Llamadas para probar los procedimientos__
+![Texto alternativo](./imagenes/imagen20.jpg)
+
+__Trigger para registrar cambios en una jornada__
 CREATE TRIGGER after_update_jornada
 AFTER UPDATE ON Jornadas
 FOR EACH ROW
 INSERT INTO Logs (Log_accion, Log_detalle)
 VALUES ('Modificación de Jornada', CONCAT('Se modificó la jornada con ID ', OLD.Jor_id, ' en la temporada ', OLD.Jor_id_temporada));
 
--- Trigger para registrar eliminación de una jornada
+__Trigger para registrar eliminación de una jornada__
 CREATE TRIGGER after_delete_jornada
 AFTER DELETE ON Jornadas
 FOR EACH ROW
