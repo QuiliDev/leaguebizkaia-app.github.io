@@ -41,7 +41,7 @@ jobs:
           npx retype build --output .retype  # Usamos npx para ejecutar el build sin necesidad de instalar globalmente
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v3.1.0  # Usamos la última versión disponible de upload-artifact
         with:
           name: retype-site
           path: .retype  # Guarda los archivos generados en '.retype' para el paso de despliegue
