@@ -20,13 +20,21 @@ jobs:
           node-version: 16
 
       - name: Install dependencies
-        run: npm install  # Esto instalará todas las dependencias de tu package.json, incluido Retype
+        run: npm install  # Asegúrate de que todas las dependencias están instaladas desde package.json
+
+      - name: Install Retype globally
+        run: npm install -g retype  # Instala Retype globalmente
+
+      - name: Verify Retype installation
+        run: |
+          which retype || echo "Retype not found"  # Verifica que 'retype' se ha instalado correctamente
+          retype --version || echo "Retype version command failed"  # Verifica la versión de Retype
 
       - name: Build Static HTML with Retype
         run: retype build --output .retype  # Genera los archivos estáticos en '.retype'
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v4  # Actualizado a la versión v4
+        uses: actions/upload-artifact@v4  # Asegúrate de usar la versión v4
         with:
           name: retype-site
           path: .retype  # Guarda los archivos generados para el paso de despliegue
@@ -41,7 +49,7 @@ jobs:
           fetch-depth: 1
 
       - name: Download Artifacts
-        uses: actions/download-artifact@v4  # También actualiza a la versión v4
+        uses: actions/download-artifact@v4  # Usa la versión v4 para descargar los artefactos
         with:
           name: retype-site
           path: .retype  # Descargar los archivos generados en la carpeta '.retype'
