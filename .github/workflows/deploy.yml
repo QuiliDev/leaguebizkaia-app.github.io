@@ -17,7 +17,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: 16  # Si usas una versión específica
+          node-version: 16
 
       - name: Install dependencies
         run: npm install  # Esto instalará todas las dependencias de tu package.json, incluido Retype
@@ -26,7 +26,7 @@ jobs:
         run: retype build --output .retype  # Genera los archivos estáticos en '.retype'
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4  # Actualizado a la versión v4
         with:
           name: retype-site
           path: .retype  # Guarda los archivos generados para el paso de despliegue
@@ -41,7 +41,7 @@ jobs:
           fetch-depth: 1
 
       - name: Download Artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4  # También actualiza a la versión v4
         with:
           name: retype-site
           path: .retype  # Descargar los archivos generados en la carpeta '.retype'
