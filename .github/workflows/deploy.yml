@@ -25,7 +25,7 @@ jobs:
 
       - name: Install Retype locally
         run: |
-          npm install retype  # Instalación local de Retype (sin usar -g)
+          npm install -g retype  # Instalación local de Retype (sin usar -g)
 
       - name: Verify Retype installation
         run: |
