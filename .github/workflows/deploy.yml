@@ -23,22 +23,18 @@ jobs:
         run: |
           npm --version
 
-      - name: Install Retype locally
+      - name: Install Retype
         run: |
-          npm install -g retype  # Instalación local de Retype (sin usar -g)
-
+          npm install -g retype
+          
       - name: Verify Retype installation
         run: |
           which retype || echo "Retype not found"
-          npx retype --version || echo "Retype version command failed"  # Usamos npx para ejecutar la versión local
+          retype --version || echo "Retype version command failed"
 
       - name: Verify .retype directory
         run: |
           ls -l .retype || echo ".retype directory does not exist"
-
-      - name: Build Static HTML with Retype
-        run: |
-          npx retype build --output .retype  # Usamos npx para ejecutar el build sin necesidad de instalar globalmente
 
   deploy:
     runs-on: ubuntu-24.04
@@ -49,8 +45,30 @@ jobs:
         with:
           fetch-depth: 1
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16
+
+      - name: Check npm version
+        run: |
+          npm --version
+
+      - name: Install Retype
+        run: |
+          npm install -g retype
+          
+      - name: Verify Retype installation
+        run: |
+          which retype || echo "Retype not found"
+          retype --version || echo "Retype version command failed"
+
+      - name: Verify .retype directory before deploy
+        run: |
+          ls -l .retype || echo ".retype directory does not exist"
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: .retype  # Publica los archivos generados desde la carpeta '.retype'
+          publish_dir: .retype
