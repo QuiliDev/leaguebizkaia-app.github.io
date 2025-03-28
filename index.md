@@ -319,7 +319,7 @@ __-- Llamadas para probar los procedimientos__
 ![Texto alternativo](./imagenes/imagen13.jpg)
 
 
--- Procedimiento 8: Consulta compleja con JOIN - Mostrar los máximos goleadores de cada equipo
+## Procedimiento 8: Consulta compleja con JOIN - Mostrar los máximos goleadores de cada equipo
 
 -- Código del Procedimiento:
 
