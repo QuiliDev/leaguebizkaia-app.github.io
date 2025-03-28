@@ -950,3 +950,4 @@ VALUES ('Eliminación de Jornada', CONCAT('Se eliminó la jornada con ID ', OLD.
 
 Alo largo del proceso nos hemos encontrado con dudas acerca de algunas procedures y funciones pero entre equipo y alguna ayuda externa las hemos solucionado y comprendido asi logrado cumplir satisfactoriamente todo lo solicitado.
 
+d

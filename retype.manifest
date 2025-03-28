@@ -1,6 +1,6 @@
 {
   "version": "3.6.0",
-  "created": "2025-03-19T10:04:18Z",
+  "created": "2025-03-28T22:39:25Z",
   "files": [
     {
       "path": ".nojekyll"
@@ -9,7 +9,106 @@
       "path": "404.html"
     },
     {
+      "path": "base-de-datos\\guia\\index.html"
+    },
+    {
+      "path": "base-de-datos\\guia2\\index.html"
+    },
+    {
+      "path": "docs\\app\\docs\\tarea1\\index.html"
+    },
+    {
+      "path": "docs\\app\\index.html"
+    },
+    {
+      "path": "docs\\db\\index.html"
+    },
+    {
+      "path": "docs\\db\\parte2\\index.html"
+    },
+    {
+      "path": "docs\\test\\index.html"
+    },
+    {
+      "path": "imagenes\\entidadrelacionactualizado.png"
+    },
+    {
+      "path": "imagenes\\imagen1.jpg"
+    },
+    {
+      "path": "imagenes\\imagen10.jpg"
+    },
+    {
+      "path": "imagenes\\imagen11.jpg"
+    },
+    {
+      "path": "imagenes\\imagen12.jpg"
+    },
+    {
+      "path": "imagenes\\imagen13.jpg"
+    },
+    {
+      "path": "imagenes\\imagen14.jpg"
+    },
+    {
+      "path": "imagenes\\imagen15.jpg"
+    },
+    {
+      "path": "imagenes\\imagen16.jpg"
+    },
+    {
+      "path": "imagenes\\imagen17.jpg"
+    },
+    {
+      "path": "imagenes\\imagen18.jpg"
+    },
+    {
+      "path": "imagenes\\imagen19.jpg"
+    },
+    {
+      "path": "imagenes\\imagen2.jpg"
+    },
+    {
+      "path": "imagenes\\imagen20.jpg"
+    },
+    {
+      "path": "imagenes\\imagen21.jpg"
+    },
+    {
+      "path": "imagenes\\imagen22.jpg"
+    },
+    {
+      "path": "imagenes\\imagen23.jpg"
+    },
+    {
+      "path": "imagenes\\imagen24.jpg"
+    },
+    {
+      "path": "imagenes\\imagen3.jpg"
+    },
+    {
+      "path": "imagenes\\imagen4.jpg"
+    },
+    {
+      "path": "imagenes\\imagen5.jpg"
+    },
+    {
+      "path": "imagenes\\imagen6.jpg"
+    },
+    {
+      "path": "imagenes\\imagen7.jpg"
+    },
+    {
+      "path": "imagenes\\imagen8.jpg"
+    },
+    {
+      "path": "imagenes\\imagen9.jpg"
+    },
+    {
       "path": "index.html"
+    },
+    {
+      "path": "pagina2\\index.html"
     },
     {
       "path": "resources\\css\\retype.css"
@@ -25,6 +124,9 @@
     },
     {
       "path": "resources\\js\\lunr.js"
+    },
+    {
+      "path": "resources\\js\\prism.js"
     },
     {
       "path": "resources\\js\\retype.js"
