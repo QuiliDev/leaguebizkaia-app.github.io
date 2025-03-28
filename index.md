@@ -477,7 +477,7 @@ DELIMITER ;
 __-- Llamadas para probar los procedimientos__
 ![Texto alternativo](./imagenes/imagen10.jpg)
 
--- Procedimiento 13: Borrado de un árbitro
+#### -- Procedimiento 13: Borrado de un árbitro
 
 -- Código del Procedimiento:
 
@@ -524,6 +524,99 @@ BEGIN
 END //
 DELIMITER ;
 ```
+
+__-- Llamadas para probar los procedimientos__
+![Texto alternativo](./imagenes/imagen10.jpg)
+
+#### -- Procedimiento 15: Insercion de un nuevo entrenador
+
+-- Código del Procedimiento:
+
+```sql
+DELIMITER //
+CREATE PROCEDURE insertar_entrenador(
+    IN p_Entrenador_id INT,
+    IN p_Nombre VARCHAR(255),
+    IN p_DNI VARCHAR(10),
+    IN p_FechaNacimiento DATE,
+    IN p_ID_Equipo INT
+)
+BEGIN
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION
+    BEGIN
+        ROLLBACK;
+        SELECT 'Error al insertar el entrenador';
+    END;
+    START TRANSACTION;
+    INSERT INTO Entrenadores (Entrenador_id, Nombre, DNI, FechaNacimiento, ID_Equipo)
+    VALUES (p_Entrenador_id, p_Nombre, p_DNI, p_FechaNacimiento, p_ID_Equipo);
+    COMMIT;
+    SELECT 'Entrenador insertado correctamente';
+END //
+DELIMITER ;
+```
+
+__-- Llamadas para probar los procedimientos__
+![Texto alternativo](./imagenes/imagen10.jpg)
+
+#### -- Procedimiento 16: Borrado de un entrenador
+
+-- Código del Procedimiento:
+
+```sql
+DELIMITER //
+CREATE PROCEDURE borrar_entrenador(IN p_Entrenador_id INT)
+BEGIN
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION
+    BEGIN
+        ROLLBACK;
+        SELECT 'Error al borrar el entrenador';
+    END;
+    START TRANSACTION;
+    DELETE FROM Entrenadores WHERE Entrenador_id = p_Entrenador_id;
+    COMMIT;
+    SELECT 'Entrenador borrado correctamente';
+END //
+DELIMITER ;
+```
+
+__-- Llamadas para probar los procedimientos__
+![Texto alternativo](./imagenes/imagen10.jpg)
+
+#### -- Procedimiento 17: Modificación del resultado de un partido
+
+-- Código del Procedimiento:
+
+```sql
+DELIMITER //
+CREATE PROCEDURE modificar_resultado_partido(
+    IN p_Par_id INT,
+    IN p_Par_goles_loc SMALLINT UNSIGNED,
+    IN p_Par_puntos_loc SMALLINT UNSIGNED,
+    IN p_Par_goles_vis SMALLINT UNSIGNED,
+    IN p_Par_puntos_vis SMALLINT UNSIGNED
+)
+BEGIN
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION
+    BEGIN
+        ROLLBACK;
+        SELECT 'Error al modificar el resultado del partido';
+    END;
+    START TRANSACTION;
+    UPDATE Partidos 
+    SET Par_goles_loc = p_Par_goles_loc, 
+        Par_puntos_loc = p_Par_puntos_loc, 
+        Par_goles_vis = p_Par_goles_vis, 
+        Par_puntos_vis = p_Par_puntos_vis 
+    WHERE Par_id = p_Par_id;
+    COMMIT;
+    SELECT 'Resultado del partido modificado correctamente';
+END //
+DELIMITER ;
+```
+
+__-- Llamadas para probar los procedimientos__
+![Texto alternativo](./imagenes/imagen10.jpg)
 
 
 
