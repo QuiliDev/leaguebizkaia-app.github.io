@@ -19,25 +19,22 @@ jobs:
         with:
           node-version: 16
 
-      - name: Install dependencies
-        run: npm install  # Instalar las dependencias desde package.json
+      - name: Check npm version
+        run: |
+          npm --version
 
-      - name: Install Retype locally
-        run: npm install retype  # Instalar Retype localmente
-
+      - name: Install Retype
+        run: |
+          npm install -g retype
+          
       - name: Verify Retype installation
         run: |
-          which retype || echo "Retype not found"  # Verifica que 'retype' esté instalado
-          npx retype --version || echo "Retype version command failed"  # Verifica la versión de Retype usando npx
+          which retype || echo "Retype not found"
+          retype --version || echo "Retype version command failed"
 
-      - name: Build Static HTML with Retype
-        run: npx retype build --output .retype  # Generar los archivos estáticos en '.retype' usando npx
-
-      - name: Upload Artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: retype-site
-          path: .retype  # Guarda los archivos generados para el paso de despliegue
+      - name: Verify .retype directory
+        run: |
+          ls -l .retype || echo ".retype directory does not exist"
 
   deploy:
     runs-on: ubuntu-24.04
@@ -48,14 +45,30 @@ jobs:
         with:
           fetch-depth: 1
 
-      - name: Download Artifacts
-        uses: actions/download-artifact@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
         with:
-          name: retype-site
-          path: .retype  # Descargar los archivos generados en la carpeta '.retype'
+          node-version: 16
+
+      - name: Check npm version
+        run: |
+          npm --version
+
+      - name: Install Retype
+        run: |
+          npm install -g retype
+          
+      - name: Verify Retype installation
+        run: |
+          which retype || echo "Retype not found"
+          retype --version || echo "Retype version command failed"
+
+      - name: Verify .retype directory before deploy
+        run: |
+          ls -l .retype || echo ".retype directory does not exist"
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: .retype  # Publicar los archivos desde '.retype'
+          publish_dir: .retype
