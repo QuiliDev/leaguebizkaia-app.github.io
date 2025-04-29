@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.6.0.799281433180">
+
+    <!-- See retype.com -->
+    <meta name="generator" content="Retype 3.6.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Documentaci&#243;n de Uso</title>
+    <meta name="title" content="Documentación de Uso">
+    <meta name="description" content="LeagueBizkaiaAPP es una aplicación de escritorio diseñada para la gestión integral de una liga de fútbol.">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="/app/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/app/">
+    <meta property="og:title" content="Documentación de Uso">
+    <meta property="og:description" content="LeagueBizkaiaAPP es una aplicación de escritorio diseñada para la gestión integral de una liga de fútbol.">
+    <meta property="og:image" content="/ficheros/install.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="/app/">
+    <meta property="twitter:title" content="Documentación de Uso">
+    <meta property="twitter:description" content="LeagueBizkaiaAPP es una aplicación de escritorio diseñada para la gestión integral de una liga de fútbol.">
+    <meta property="twitter:image" content="/ficheros/install.png">
+
+    <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
+
+    <link href="../resources/css/retype.css?v=3.6.0.799281433180" rel="stylesheet">
+
+    <script data-cfasync="false" src="../resources/js/config.js?v=3.6.0.799281433180" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../resources/js/retype.js?v=3.6.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.6.0.799281433180" data-turbo-eval="false" defer></script>
+</head>
+<body>
+    <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
+        <div class="absolute bottom-0 left-0 bg-gray-100 dark:bg-dark-800" style="top: 5rem; right: 50%"></div>
+    
+        <header id="docs-site-header" class="sticky top-0 z-30 flex w-full h-16 bg-white border-b border-gray-200 md:h-20 dark:bg-dark-850 dark:border-dark-650">
+            <div class="container relative flex items-center justify-between pr-6 grow md:justify-start">
+                <!-- Mobile menu button skeleton -->
+                <button v-cloak class="skeleton docs-mobile-menu-button flex items-center justify-center shrink-0 overflow-hidden dark:text-white focus:outline-none rounded-full w-10 h-10 ml-3.5 md:hidden"><svg xmlns="http://www.w3.org/2000/svg" class="mb-px shrink-0" width="24" height="24" viewBox="0 0 24 24" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor"><path d="M2 4h20v2H2zM2 11h20v2H2zM2 18h20v2H2z"></path></g></svg></button>
+                <div v-cloak id="docs-sidebar-toggle"></div>
+        
+                <!-- Logo -->
+                <div class="flex items-center justify-between h-full py-2 md:w-75">
+                    <div class="flex items-center px-2 md:px-6">
+                        <a id="docs-site-logo" href="../" class="flex items-center leading-snug text-xl">
+                            <span class="dark:text-white font-semibold line-clamp-1 md:line-clamp-2">LeagueBizkaiaApp Documentación</span>
+                        </a><span class="hidden px-2 py-1 ml-4 text-sm font-semibold leading-none text-root-logo-label-text bg-root-logo-label-bg rounded-sm md:inline-block">Reto3</span>
+                    </div>
+        
+                    <span class="hidden h-8 border-r md:inline-block dark:border-dark-650"></span>
+                </div>
+        
+                <div class="flex justify-between md:grow">
+                    <!-- Top Nav -->
+                    <nav class="hidden md:flex">
+                        <ul class="flex flex-col mb-4 md:pl-16 md:mb-0 md:flex-row md:items-center">
+                            <li class="mr-6">
+                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="../database/">Documentación DB</a>
+                            </li>
+                            <li class="mr-6">
+                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="../app/">Documentación APP</a>
+                            </li>
+        
+                        </ul>
+                    </nav>
+        
+                    <!-- Header Right Skeleton -->
+                    <div v-cloak class="flex justify-end grow skeleton">
+        
+                        <!-- Search input mock -->
+                        <div class="relative hidden w-40 lg:block lg:max-w-sm lg:ml-auto">
+                            <div class="absolute flex items-center justify-center h-full pl-3 dark:text-dark-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-base" width="16" height="16" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 1px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
+                            </div>
+                            <input class="w-full h-10 placeholder-gray-400 transition-colors duration-200 ease-in bg-gray-200 border border-transparent rounded md:text-sm hover:bg-white hover:border-gray-300 focus:outline-none focus:bg-white focus:border-gray-500 dark:bg-dark-600 dark:border-dark-600 dark:placeholder-dark-400" style="padding: 0.625rem 0.75rem 0.625rem 2rem" type="text" placeholder="Search">
+                        </div>
+        
+                        <!-- Mobile search button -->
+                        <div class="flex items-center justify-center w-10 h-10 lg:hidden">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 icon-base" width="20" height="20" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
+                        </div>
+        
+                        <!-- Dark mode switch placeholder -->
+                        <div class="w-10 h-10 lg:ml-2"></div>
+        
+                        <!-- History button -->
+                        <div class="flex items-center justify-center w-10 h-10" style="margin-right: -0.625rem;">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 icon-base" width="22" height="22" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor" ><g ><path d="M12.01 6.01c-.55 0-1 .45-1 1V12a1 1 0 00.4.8l3 2.22a.985.985 0 001.39-.2.996.996 0 00-.21-1.4l-2.6-1.92V7.01c.02-.55-.43-1-.98-1z"></path><path d="M12.01 1.91c-5.33 0-9.69 4.16-10.05 9.4l-.29-.26a.997.997 0 10-1.34 1.48l1.97 1.79c.19.17.43.26.67.26s.48-.09.67-.26l1.97-1.79a.997.997 0 10-1.34-1.48l-.31.28c.34-4.14 3.82-7.41 8.05-7.41 4.46 0 8.08 3.63 8.08 8.09s-3.63 8.08-8.08 8.08c-2.18 0-4.22-.85-5.75-2.4a.996.996 0 10-1.42 1.4 10.02 10.02 0 007.17 2.99c5.56 0 10.08-4.52 10.08-10.08.01-5.56-4.52-10.09-10.08-10.09z"></path></g></g></svg>
+                        </div>
+                    </div>
+        
+                    <div v-cloak class="flex justify-end grow">
+                        <div id="docs-mobile-search-button"></div>
+                        <doc-search-desktop></doc-search-desktop>
+        
+                        <doc-theme-switch class="lg:ml-2"></doc-theme-switch>
+                        <doc-history></doc-history>
+                    </div>
+                </div>
+            </div>
+        </header>
+    
+        <div class="container relative flex bg-white">
+            <!-- Sidebar Skeleton -->
+            <div v-cloak class="fixed flex flex-col shrink-0 duration-300 ease-in-out bg-gray-100 border-gray-200 sidebar top-20 w-75 border-r h-screen md:sticky transition-transform skeleton dark:bg-dark-800 dark:border-dark-650">
+            
+                <!-- Render this div, if config.showSidebarFilter is `true` -->
+                <div class="flex items-center h-16 px-6">
+                    <input class="w-full h-8 px-3 py-2 transition-colors duration-200 ease-linear bg-white border border-gray-200 rounded shadow-none text-sm focus:outline-none focus:border-gray-600 dark:bg-dark-600 dark:border-dark-600" type="text" placeholder="Filter">
+                </div>
+            
+                <div class="pl-6 mt-1 mb-4">
+                    <div class="w-32 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-48 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-40 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-32 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-48 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-40 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                </div>
+            
+                <div class="shrink-0 mt-auto bg-transparent dark:border-dark-650">
+                    <a class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by" target="_blank" href="https://retype.com/" rel="noopener">
+                        <span class="text-xs whitespace-nowrap">Powered by</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Sidebar component -->
+            <doc-sidebar v-cloak>
+                <template #sidebar-footer>
+                    <div class="shrink-0 mt-auto border-t md:bg-transparent md:border-none dark:border-dark-650">
+            
+                        <div class="py-3 px-6 md:hidden border-b dark:border-dark-650">
+                            <nav>
+                                <ul class="flex flex-wrap justify-center items-center">
+                                    <li class="mr-6">
+                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="../database/">Documentación DB</a>
+                                    </li>
+                                    <li class="mr-6">
+                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="../app/">Documentación APP</a>
+                                    </li>
+            
+                                </ul>
+                            </nav>
+                        </div>
+            
+                        <a class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by" target="_blank" href="https://retype.com/" rel="noopener">
+                            <span class="text-xs whitespace-nowrap">Powered by</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+                        </a>
+                    </div>
+                </template>
+            </doc-sidebar>
+    
+            <div class="grow min-w-0 dark:bg-dark-850">
+                <!-- Render "toolbar" template here on api pages --><!-- Render page content -->
+                <div class="flex">
+                    <div class="min-w-0 p-4 grow md:px-16">
+                        <main class="relative pb-12 lg:pt-2">
+                            <div class="docs-markdown" id="docs-content">
+                                <!-- Rendered if sidebar right is enabled -->
+                                <div id="docs-sidebar-right-toggle"></div>
+                                <!-- Page content  -->
+<doc-anchor-target id="documentación-de-uso" class="break-words">
+    <h1>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#documentación-de-uso">#</doc-anchor-trigger>
+        <span><strong>Documentación de Uso</strong></span>
+    </h1>
+</doc-anchor-target>
+<doc-anchor-target id="introducción">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#introducción">#</doc-anchor-trigger>
+        <span><strong>Introducción</strong></span>
+    </h2>
+</doc-anchor-target>
+<p><strong>LeagueBizkaiaAPP</strong> es una aplicación de escritorio diseñada para la gestión integral de una liga de fútbol. Esta herramienta permite llevar un control detallado de todos los aspectos relacionados con la liga, desde la inscripción de equipos y jugadores, hasta la creación de temporadas y la gestión de los partidos. Además, ofrece funcionalidades para generar automáticamente las jornadas de un torneo, registrar resultados, y modificar la clasificación, todo de manera intuitiva y eficiente. La aplicación también cuenta con la opción de exportar los datos necesarios para su integración con el sitio web de la liga.</p>
+<doc-anchor-target id="características-principales">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#características-principales">#</doc-anchor-trigger>
+        <span><strong>Características Principales</strong></span>
+    </h2>
+</doc-anchor-target>
+<ol>
+<li><p><strong>Gestión de Equipos y Jugadores</strong>: Permite registrar los equipos que participan en la liga y fichar jugadores a dichos equipos.</p>
+</li>
+<li><p><strong>Creación de Temporadas</strong>: Puedes crear nuevas temporadas y asignar equipos a las mismas. Esto incluye la generación automática de los enfrentamientos de las jornadas del torneo.</p>
+</li>
+<li><p><strong>Generación Automática de Jornadas</strong>: La aplicación genera automáticamente el calendario de partidos de la temporada con los equipos enfrentándose entre sí. Además, permite ingresar y modificar los resultados de los encuentros.</p>
+</li>
+<li><p><strong>Tabla de Clasificación</strong>: Visualiza en tiempo real la clasificación de los equipos según los resultados de los partidos disputados.</p>
+</li>
+<li><p><strong>Exportación de Datos</strong>: La aplicación permite exportar los datos generados (equipos, jugadores, partidos, resultados y clasificación) en un formato adecuado para ser utilizado en el sitio web de la liga.</p>
+</li>
+</ol>
+<hr>
+<doc-anchor-target id="instalación">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#instalación">#</doc-anchor-trigger>
+        <span><strong>Instalación</strong></span>
+    </h2>
+</doc-anchor-target>
+<p>Para instalar <strong>LeagueBizkaiaAPP</strong> en tu computadora, sigue estos pasos:</p>
+<doc-anchor-target id="requisitos-previos">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#requisitos-previos">#</doc-anchor-trigger>
+        <span>Requisitos Previos</span>
+    </h3>
+</doc-anchor-target>
+<ul>
+<li><p><strong>Java Runtime Environment (JRE)</strong>: Asegúrate de tener instalada una versión compatible de Java en tu sistema. Puedes descargarla desde el sitio oficial de Oracle <a href="https://www.oracle.com/java/technologies/javase-jre8-downloads.html">aquí</a>.</p>
+</li>
+<li><p><strong>XAMPP</strong>: Para poder gestionar la base de datos localmente, necesitas tener <strong>XAMPP</strong> instalado en tu equipo. Puedes descargarlo e instalarlo desde <a href="https://www.apachefriends.org/es/index.html">aquí</a>.</p>
+</li>
+</ul>
+<hr>
+<doc-anchor-target id="pasos-de-instalación">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#pasos-de-instalación">#</doc-anchor-trigger>
+        <span>Pasos de Instalación</span>
+    </h3>
+</doc-anchor-target>
+<ol>
+<li><strong>Descarga del Software</strong>:
+<ul>
+<li>Descarga el archivo comprimido <strong>LeagueBizkaiaAPP</strong> desde el siguiente enlace:</li>
+</ul>
+</li>
+</ol>
+<p>
+<div class="mb-6 px-5 py-4 flex justify-between relative border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded transition-colors duration-150">
+    <div class="flex items-center text-blue-500 dark:text-blue-400">
+        <span class="inline-block mb-px">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><path fill="none" d="M0 0h24v24H0z"/><path d="M21 14c-.55 0-1 .45-1 1v4c0 .55-.45 1-1 1H5c-.55 0-1-.45-1-1v-4c0-.55-.45-1-1-1s-1 .45-1 1v4c0 1.65 1.35 3 3 3h14c1.65 0 3-1.35 3-3v-4c0-.55-.45-1-1-1z"/><path d="M11.29 15.71c.09.09.2.17.33.22.12.04.25.07.38.07s.26-.03.38-.08.23-.12.33-.22l5-5a.996.996 0 10-1.41-1.41l-3.3 3.3V3c0-.55-.45-1-1-1s-1 .45-1 1v9.59l-3.29-3.3A.996.996 0 106.3 10.7l4.99 5.01z"/></svg>
+        </span>
+        <span class="inline-block font-medium ml-2">Descargar LeagueBizkaiaAPP</span>
+    </div>
+    <div class="flex items-center text-xs text-gray-400 dark:text-dark-400">
+        <span>Grupo2_LeagueBizkaiaAPP.zip</span>
+        <span class="inline-block ml-2">11.7MB</span>
+    </div>
+    <a href="../ficheros/grupo2_leaguebizkaiaapp.zip" class="absolute block inset-0" target="_blank" download="Grupo2_LeagueBizkaiaAPP.zip"></a>
+</div>
+</p>
+<ol start="2">
+<li><p><strong>Instalación</strong>:</p>
+<ul>
+<li>Extrae el contenido del archivo ZIP descargado en una carpeta de tu preferencia.</li>
+<li>Dentro de la carpeta extraída, encontrarás el fichero <code v-pre>RETO3_GRUPO2_DB_APP.sql</code>. Este archivo contiene la base de datos de la aplicación. Es fundamental que lo importes a tu servidor local de base de datos.
+<ul>
+<li>dentro de <strong>PhpMyAdmin</strong> crear la base de datos <code v-pre>reto3</code> y pegar el contenido del fichero <code v-pre>RETO3_GRUPO2_DB_APP.sql</code> en la consulta y Continuar.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Verificación</strong>:</p>
+<ul>
+<li>Una vez que la base de datos haya sido importada correctamente, navega a la carpeta donde extrajiste los archivos de la aplicación.</li>
+<li>Asegúrate de que la carpeta <strong>img</strong> y el archivo <code v-pre>usuarios.odb</code> se encuentren en la misma ubicación que el archivo <strong>LeagueBizkaiaAPP.jar</strong>. La carpeta <strong>img</strong> es esencial para el almacenamiento de las imágenes asociadas a los equipos y jugadores, mientras que <strong>usuarios.obd</strong> contiene las credenciales necesarias para acceder al sistema.</li>
+<li>Ejecuta el archivo <strong>LeagueBizkaiaAPP.jar</strong>.</li>
+<li>Si todo está bien configurado, verás el panel de inicio de sesión de la aplicación, donde podrás ingresar tus credenciales y comenzar a usar la app.
+<figure class="content-center">
+    <img src="../ficheros/install.png" alt="Ficheros">
+    <figcaption class="caption">Ficheros</figcaption>
+</figure>
+</li>
+</ul>
+</li>
+</ol>
+<hr>
+<doc-anchor-target id="credenciales">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#credenciales">#</doc-anchor-trigger>
+        <span><strong>Credenciales</strong>:</span>
+    </h3>
+</doc-anchor-target>
+<p><figure class="content-center">
+    <img src="../ficheros/login.png" alt="Login">
+    <figcaption class="caption">Login</figcaption>
+</figure>
+</p>
+<ul>
+<li><strong>Usuario</strong>: <code v-pre>director</code></li>
+<li><strong>Contraseña</strong>: <code v-pre>director</code></li>
+</ul>
+<p><strong>¡IMPORTANTE!</strong>: Este usuario es el <strong>SuperAdmin</strong> de la aplicación. Con estas credenciales podrás acceder al sistema y gestionar la creación de nuevos usuarios dentro de la plataforma.</p>
+<ul>
+<li>El archivo <strong>usuarios.obd</strong> debe estar ubicado en la misma carpeta que el archivo <strong>LeagueBizkaiaAPP.jar</strong>.</li>
+<li>Asegúrate de que este archivo esté presente y correctamente configurado. Si no tienes credenciales adicionales, puedes crear nuevos usuarios desde la sección de administración una vez que hayas iniciado sesión como <strong>SuperAdmin</strong>.</li>
+</ul>
+<p>Si las credenciales no son válidas o el archivo <strong>usuarios.obd</strong> falta, no podrás acceder a la aplicación correctamente.</p>
+<hr>
+<doc-anchor-target id="1-gestión-de-usuarios">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#1-gestión-de-usuarios">#</doc-anchor-trigger>
+        <span><strong>1. Gestión de Usuarios</strong></span>
+    </h2>
+</doc-anchor-target>
+<p><figure class="content-center">
+    <img src="../ficheros/panelusuarios.png" alt="Panel Usuarios">
+    <figcaption class="caption">Panel Usuarios</figcaption>
+</figure>
+</p>
+<p>En el <strong>Panel de Usuarios</strong>, los administradores pueden gestionar los usuarios registrados en el sistema. Las acciones disponibles son:</p>
+<doc-anchor-target id="acciones-disponibles">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#acciones-disponibles">#</doc-anchor-trigger>
+        <span><strong>Acciones Disponibles:</strong></span>
+    </h3>
+</doc-anchor-target>
+<ul>
+<li><strong>Crear Usuario</strong>: Permite agregar un nuevo usuario a la aplicación.</li>
+<li><strong>Eliminar Usuario</strong>: Permite eliminar un usuario existente. <strong>Nota</strong>: El usuario <strong>Director</strong> no podrá ser eliminado.</li>
+<li><strong>Modificar Usuario</strong>: Permite actualizar los datos y los privilegios de un usuario.</li>
+</ul>
+<doc-anchor-target id="detalles-al-crear-un-usuario">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#detalles-al-crear-un-usuario">#</doc-anchor-trigger>
+        <span><strong>Detalles al Crear un Usuario:</strong></span>
+    </h3>
+</doc-anchor-target>
+<p>Cuando se crea un nuevo usuario, se deben ingresar los siguientes campos:</p>
+<ul>
+<li><strong>DNI</strong>: El DNI debe consistir en 8 números seguidos de una letra (por ejemplo, <code v-pre>12345678A</code>).</li>
+<li><strong>Fecha de Nacimiento</strong>: La fecha debe ser ingresada en formato <strong>dd/mm/aaaa</strong> (por ejemplo, <code v-pre>12/12/2000</code>).</li>
+<li><strong>Contraseña</strong>: La contraseña debe tener exactamente 8 caracteres alfanuméricos. Es recomendable que sea una combinación de letras y números para mayor seguridad.</li>
+<li><strong>Tipo de Usuario</strong>: Se debe seleccionar el tipo de usuario, que puede ser:
+<ul>
+<li><strong>Usuario</strong></li>
+<li><strong>Árbitro</strong></li>
+<li><strong>Gestor</strong></li>
+</ul>
+</li>
+</ul>
+<doc-anchor-target id="modificación-de-usuarios">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#modificación-de-usuarios">#</doc-anchor-trigger>
+        <span><strong>Modificación de Usuarios:</strong></span>
+    </h3>
+</doc-anchor-target>
+<p>Una vez que un usuario ha sido creado, puedes modificar los siguientes detalles:</p>
+<ul>
+<li><strong>Datos Personales</strong>: Se pueden modificar los datos como nombre, DNI, fecha de nacimiento, etc.</li>
+<li><strong>Privilegios (Tipo de Usuario)</strong>: Se puede cambiar el <strong>Tipo de Usuario</strong>, lo que afecta a los privilegios del usuario dentro de la aplicación. Por ejemplo, un <strong>Gestor</strong> puede tener más permisos que un <strong>Usuario</strong>.</li>
+</ul>
+<doc-anchor-target id="restricciones-importantes">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#restricciones-importantes">#</doc-anchor-trigger>
+        <span><strong>Restricciones Importantes:</strong></span>
+    </h3>
+</doc-anchor-target>
+<ul>
+<li><strong>El Director no puede ser eliminado</strong>: El usuario <strong>Director</strong> es el SuperAdmin y tiene privilegios especiales. Por lo tanto, no puede ser eliminado desde el panel.</li>
+</ul>
+<hr>
+<doc-anchor-target id="2-gestión-de-equipos">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#2-gestión-de-equipos">#</doc-anchor-trigger>
+        <span><strong>2. Gestión de Equipos</strong></span>
+    </h2>
+</doc-anchor-target>
+<p><figure class="content-center">
+    <img src="../ficheros/panelequipos.png" alt="Panel Equipos">
+    <figcaption class="caption">Panel Equipos</figcaption>
+</figure>
+</p>
+<p>En este panel, puedes:</p>
+<ul>
+<li><strong>Crear equipos</strong> y asignarles jugadores.</li>
+<li><strong>Modificar la información</strong> del equipo (nombre, entrenador, fecha de fundación).</li>
+<li><strong>Cambiar el escudo</strong> del equipo.</li>
+<li><strong>Eliminar un equipo</strong>, siempre que no haya participado en una temporada previa.</li>
+<li><strong>Asignar jugadores a un equipo</strong> podremos ver una lista de jugadores con fichaje libre y los propios del equipo para asignarlos.</li>
+<li><strong>Busqueda por nombre</strong> tenemos un buscador a la mano por si quieres encontrar rapido a un equipo.</li>
+</ul>
+<hr>
+<doc-anchor-target id="3-gestión-de-jugadores">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#3-gestión-de-jugadores">#</doc-anchor-trigger>
+        <span><strong>3. Gestión de Jugadores</strong></span>
+    </h2>
+</doc-anchor-target>
+<p><figure class="content-center">
+    <img src="../ficheros/paneljugadores.png" alt="PanelJugadores">
+    <figcaption class="caption">PanelJugadores</figcaption>
+</figure>
+En este panel, puedes:</p>
+<ul>
+<li><p><strong>Crear Jugador</strong>:</p>
+<ul>
+<li>Se deben ingresar los siguientes datos:</li>
+<li><strong>Nombre</strong>: Nombre completo del jugador.</li>
+<li><strong>Nacionalidad</strong>: Nacionalidad del jugador.</li>
+<li><strong>Fecha de Nacimiento</strong>: En formato <strong>dd/mm/aaaa</strong>.</li>
+<li><strong>Altura</strong>: En metros.</li>
+<li><strong>Peso</strong>: En kilogramos.</li>
+<li><strong>Número de Dorsal</strong>: El número que usará el jugador.</li>
+<li><strong>Posición</strong>: Selecciona la posición del jugador (Delantero, Defensa, Mediocampista, etc.).</li>
+<li><strong>Equipo</strong>: Selecciona el equipo al que el jugador pertenecerá.</li>
+</ul>
+<p>_.</p>
+</li>
+<li><p><strong>Modificar Jugador</strong>:</p>
+<ul>
+<li>Puedes editar los datos del jugador, como nombre, fecha de nacimiento, altura, peso, etc.</li>
+<li><strong>Cambiar fotografía</strong>: Puedes actualizar la foto del jugador.</li>
+</ul>
+</li>
+<li><p><strong>Eliminar Jugador</strong>:</p>
+<ul>
+<li>Solo puedes eliminar a un jugador <strong>si no ha participado en una temporada previa</strong>.</li>
+</ul>
+</li>
+<li><p><strong>Búsqueda</strong>:</p>
+<ul>
+<li><strong>Buscar por nombre</strong>: Filtra jugadores que coincidan con el nombre ingresado.</li>
+<li><strong>Filtrar por temporada y equipo</strong>: Puedes ver los jugadores filtrados por temporada o equipo.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<doc-anchor-target id="4-fichar-jugador-a-equipo">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#4-fichar-jugador-a-equipo">#</doc-anchor-trigger>
+        <span><strong>4. Fichar Jugador a Equipo</strong></span>
+    </h2>
+</doc-anchor-target>
+<p><figure class="content-center">
+    <img src="../ficheros/fichaje.png" alt="Panel Selección de Jugadores">
+    <figcaption class="caption">Panel Selección de Jugadores</figcaption>
+</figure>
+</p>
+<p>Para fichar jugadores, sigue estos pasos:</p>
+<ol>
+<li><strong>Accede al Panel de Equipos</strong> y selecciona un <strong>equipo</strong> ya creado.</li>
+<li>Haz clic en <strong>Gestionar Jugadores</strong>. Esto te llevará a una sección donde podrás ver:
+<ul>
+<li>Los jugadores <strong>actualmente fichados</strong> por el equipo.</li>
+<li>Una <strong>lista de jugadores disponibles</strong> para fichar.</li>
+</ul>
+</li>
+<li>Para fichar un jugador, simplemente <strong>selecciona</strong> al jugador de la lista de disponibles y haz clic en <strong>Guardar Cambios</strong>.</li>
+<li>Para <strong>retirar un jugador</strong> del equipo, deselecciona al jugador y guarda los cambios.</li>
+</ol>
+<hr>
+<p>Aquí tienes la descripción mejorada y concisa del <strong>Panel de Temporadas</strong>:</p>
+<hr>
+<doc-anchor-target id="5-panel-de-temporadas">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#5-panel-de-temporadas">#</doc-anchor-trigger>
+        <span><strong>5. Panel de Temporadas</strong></span>
+    </h2>
+</doc-anchor-target>
+<p><figure class="content-center">
+    <img src="../ficheros/paneltemporadas.png" alt="Panel Temporadas">
+    <figcaption class="caption">Panel Temporadas</figcaption>
+</figure>
+</p>
+<p>En este panel, podrás gestionar las temporadas de la liga. Las opciones disponibles son:</p>
+<doc-anchor-target id="acciones-disponibles-1">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#acciones-disponibles-1">#</doc-anchor-trigger>
+        <span><strong>Acciones Disponibles:</strong></span>
+    </h3>
+</doc-anchor-target>
+<ul>
+<li><p><strong>Crear Temporada</strong>:</p>
+<ul>
+<li>Al presionar este botón, serás redirigido a una sección similar al de Seleccion de Jugadores donde podrás <strong>asignar equipos</strong> a la nueva temporada. Es importante que cada equipo cuente con <strong>al menos 11 jugadores</strong> para poder participar en la temporada.</li>
+</ul>
+</li>
+<li><p><strong>Eliminar Temporada</strong>:</p>
+<ul>
+<li>Solo se puede eliminar una temporada si <strong>no ha sido iniciada</strong> o ya <strong>ha finalizado</strong>.</li>
+</ul>
+</li>
+<li><p><strong>Gestionar Equipos</strong>:</p>
+<ul>
+<li>Puedes <strong>asignar equipos</strong> a una temporada que aún <strong>no haya comenzado</strong>. Esto te llevará al panel donde podrás seleccionar los equipos para esa temporada.</li>
+</ul>
+</li>
+<li><p><strong>Iniciar Temporada</strong>:</p>
+<ul>
+<li>Para iniciar la temporada, debes tener equipos <strong>asignados</strong> y <strong>una cantidad de equipos par</strong>. Al iniciar, se generarán automáticamente las <strong>jornadas</strong> y los <strong>enfrentamientos</strong> de la temporada.</li>
+</ul>
+</li>
+<li><p><strong>Finalizar Temporada</strong>:</p>
+<ul>
+<li>Para finalizar la temporada, <strong>todos los resultados de los partidos</strong> deben estar ingresados. Una vez finalizada, la temporada ya no podrá modificarse.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>Aquí tienes una descripción clara y concisa para la sección de <strong>Introducción de Resultados de los Partidos</strong>:</p>
+<hr>
+<doc-anchor-target id="6-introducción-de-resultados-de-partidos">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#6-introducción-de-resultados-de-partidos">#</doc-anchor-trigger>
+        <span><strong>6. Introducción de Resultados de Partidos</strong></span>
+    </h2>
+</doc-anchor-target>
+<p><figure class="content-center">
+    <img src="../ficheros/panelclasificiacion.png" alt="Panel Clasificación">
+    <figcaption class="caption">Panel Clasificación</figcaption>
+</figure>
+</p>
+<p>Para ingresar los resultados de los partidos de una temporada:</p>
+<ol>
+<li><p><strong>Accede al Panel de Clasificación</strong>:</p>
+<ul>
+<li>En este panel podrás ver los enfrentamientos organizados por <strong>temporada</strong>, <strong>jornada</strong> y <strong>partidos</strong>.</li>
+</ul>
+</li>
+<li><p><strong>Ingreso de Resultados</strong>:</p>
+<ul>
+<li>En cada enfrentamiento, ingresa el resultado final del partido (puntos obtenidos por cada equipo).</li>
+<li>Al terminar de ingresar los resultados, presiona el botón <strong>&quot;Finalizar Jornada&quot;</strong> para guardar los puntos y actualizar la <strong>tabla de clasificación</strong>.</li>
+</ul>
+</li>
+<li><p><strong>Actualización de la Tabla</strong>:</p>
+<ul>
+<li>La <strong>tabla de clasificación</strong> se actualizará automáticamente cada vez que ingreses los resultados de los partidos de una jornada.</li>
+</ul>
+</li>
+<li><p><strong>Exportar la Tabla de Clasificación</strong>:</p>
+<ul>
+<li>Puedes descargar la <strong>tabla de clasificación</strong> de la temporada en formato <strong>PDF</strong> para tener una copia oficial.</li>
+</ul>
+</li>
+<li><p><strong>Exportar Datos de la Temporada</strong>:</p>
+<ul>
+<li>Al finalizar una temporada, puedes exportar los <strong>datos</strong> (resultados, equipos, clasificaciones) de la temporada en curso o ya finalizada, en formato <strong>XML</strong>, para su uso en el sitio web oficial de la liga.</li>
+</ul>
+</li>
+</ol>
+
+                                
+                                <!-- Required only on API pages -->
+                                <doc-toolbar-member-filter-no-results></doc-toolbar-member-filter-no-results>
+                            </div>
+                            <footer class="clear-both">
+                            
+                                <nav class="flex mt-14">
+                                    <div class="w-1/2">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../database/">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                                            <span>
+                                                <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
+                                                <span class="block mt-1">Documentación Base de Datos</span>
+                                            </span>
+                                        </a>
+                                    </div>
+                            
+                                    <div class="w-1/2">
+                                    </div>
+                                </nav>
+                            </footer>
+                        </main>
+                
+                        <div class="border-t dark:border-dark-650 pt-6 mb-8">
+                            <footer class="flex flex-wrap items-center justify-between">
+                                <div>
+                                    <ul class="flex flex-wrap items-center text-sm">
+                                    </ul>
+                                </div>
+                                <div class="docs-copyright py-2 text-gray-500 dark:text-dark-350 text-sm leading-relaxed"><p>© Copyright 2025. All rights reserved.</p></div>
+                            </footer>
+                        </div>
+                    </div>
+                
+                    <!-- Rendered if sidebar right is enabled -->
+                    <!-- Sidebar right skeleton-->
+                    <div v-cloak class="fixed top-0 bottom-0 right-0 translate-x-full bg-white border-gray-200 lg:sticky lg:border-l lg:shrink-0 lg:pt-6 lg:transform-none sm:w-1/2 lg:w-64 lg:z-0 md:w-104 sidebar-right skeleton dark:bg-dark-850 dark:border-dark-650">
+                        <div class="pl-5">
+                            <div class="w-32 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+                            <div class="w-48 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+                            <div class="w-40 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+                        </div>
+                    </div>
+                
+                    <!-- User should be able to hide sidebar right -->
+                    <doc-sidebar-right v-cloak></doc-sidebar-right>
+                </div>
+
+            </div>
+        </div>
+    
+        <doc-search-mobile></doc-search-mobile>
+        <doc-back-to-top></doc-back-to-top>
+    </div>
+
+
+    <div id="docs-overlay-target"></div>
+
+    <script data-cfasync="false">window.__DOCS__ = { "title": "Documentación de Uso", level: 1, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+</body>
+</html>

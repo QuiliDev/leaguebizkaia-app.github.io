@@ -1,6 +1,6 @@
 {
   "version": "3.6.0",
-  "created": "2025-03-28T22:39:25Z",
+  "created": "2025-04-29T22:37:15Z",
   "files": [
     {
       "path": ".nojekyll"
@@ -9,106 +9,247 @@
       "path": "404.html"
     },
     {
-      "path": "base-de-datos\\guia\\index.html"
+      "path": "app\\index.html"
     },
     {
-      "path": "base-de-datos\\guia2\\index.html"
+      "path": "base-de-datos\\guia\\index.html",
+      "old": true
     },
     {
-      "path": "docs\\app\\docs\\tarea1\\index.html"
+      "path": "base-de-datos\\guia2\\index.html",
+      "old": true
     },
     {
-      "path": "docs\\app\\index.html"
+      "path": "database\\imagenes\\entidadrelacionactualizado.png"
     },
     {
-      "path": "docs\\db\\index.html"
+      "path": "database\\imagenes\\imagen1.jpg"
     },
     {
-      "path": "docs\\db\\parte2\\index.html"
+      "path": "database\\imagenes\\imagen10.jpg"
     },
     {
-      "path": "docs\\test\\index.html"
+      "path": "database\\imagenes\\imagen11.jpg"
     },
     {
-      "path": "imagenes\\entidadrelacionactualizado.png"
+      "path": "database\\imagenes\\imagen12.jpg"
     },
     {
-      "path": "imagenes\\imagen1.jpg"
+      "path": "database\\imagenes\\imagen13.jpg"
     },
     {
-      "path": "imagenes\\imagen10.jpg"
+      "path": "database\\imagenes\\imagen14.jpg"
     },
     {
-      "path": "imagenes\\imagen11.jpg"
+      "path": "database\\imagenes\\imagen15.jpg"
     },
     {
-      "path": "imagenes\\imagen12.jpg"
+      "path": "database\\imagenes\\imagen16.jpg"
     },
     {
-      "path": "imagenes\\imagen13.jpg"
+      "path": "database\\imagenes\\imagen17.jpg"
     },
     {
-      "path": "imagenes\\imagen14.jpg"
+      "path": "database\\imagenes\\imagen18.jpg"
     },
     {
-      "path": "imagenes\\imagen15.jpg"
+      "path": "database\\imagenes\\imagen19.jpg"
     },
     {
-      "path": "imagenes\\imagen16.jpg"
+      "path": "database\\imagenes\\imagen2.jpg"
     },
     {
-      "path": "imagenes\\imagen17.jpg"
+      "path": "database\\imagenes\\imagen20.jpg"
     },
     {
-      "path": "imagenes\\imagen18.jpg"
+      "path": "database\\imagenes\\imagen21.jpg"
     },
     {
-      "path": "imagenes\\imagen19.jpg"
+      "path": "database\\imagenes\\imagen22.jpg"
     },
     {
-      "path": "imagenes\\imagen2.jpg"
+      "path": "database\\imagenes\\imagen23.jpg"
     },
     {
-      "path": "imagenes\\imagen20.jpg"
+      "path": "database\\imagenes\\imagen24.jpg"
     },
     {
-      "path": "imagenes\\imagen21.jpg"
+      "path": "database\\imagenes\\imagen3.jpg"
     },
     {
-      "path": "imagenes\\imagen22.jpg"
+      "path": "database\\imagenes\\imagen4.jpg"
     },
     {
-      "path": "imagenes\\imagen23.jpg"
+      "path": "database\\imagenes\\imagen5.jpg"
     },
     {
-      "path": "imagenes\\imagen24.jpg"
+      "path": "database\\imagenes\\imagen6.jpg"
     },
     {
-      "path": "imagenes\\imagen3.jpg"
+      "path": "database\\imagenes\\imagen7.jpg"
     },
     {
-      "path": "imagenes\\imagen4.jpg"
+      "path": "database\\imagenes\\imagen8.jpg"
     },
     {
-      "path": "imagenes\\imagen5.jpg"
+      "path": "database\\imagenes\\imagen9.jpg"
     },
     {
-      "path": "imagenes\\imagen6.jpg"
+      "path": "database\\index.html"
     },
     {
-      "path": "imagenes\\imagen7.jpg"
+      "path": "docs\\app\\docs\\tarea1\\index.html",
+      "old": true
     },
     {
-      "path": "imagenes\\imagen8.jpg"
+      "path": "docs\\app\\index.html",
+      "old": true
     },
     {
-      "path": "imagenes\\imagen9.jpg"
+      "path": "docs\\db\\index.html",
+      "old": true
+    },
+    {
+      "path": "docs\\db\\parte2\\index.html",
+      "old": true
+    },
+    {
+      "path": "docs\\test\\index.html",
+      "old": true
+    },
+    {
+      "path": "ficheros\\fichaje.png"
+    },
+    {
+      "path": "ficheros\\grupo2_leaguebizkaiaapp.zip"
+    },
+    {
+      "path": "ficheros\\install.png"
+    },
+    {
+      "path": "ficheros\\login.png"
+    },
+    {
+      "path": "ficheros\\panelclasificiacion.png"
+    },
+    {
+      "path": "ficheros\\panelequipos.png"
+    },
+    {
+      "path": "ficheros\\paneljugadores.png"
+    },
+    {
+      "path": "ficheros\\paneltemporadas.png"
+    },
+    {
+      "path": "ficheros\\panelusuarios.png"
+    },
+    {
+      "path": "imagenes\\entidadrelacionactualizado.png",
+      "old": true
+    },
+    {
+      "path": "imagenes\\imagen1.jpg",
+      "old": true
+    },
+    {
+      "path": "imagenes\\imagen10.jpg",
+      "old": true
+    },
+    {
+      "path": "imagenes\\imagen11.jpg",
+      "old": true
+    },
+    {
+      "path": "imagenes\\imagen12.jpg",
+      "old": true
+    },
+    {
+      "path": "imagenes\\imagen13.jpg",
+      "old": true
+    },
+    {
+      "path": "imagenes\\imagen14.jpg",
+      "old": true
+    },
+    {
+      "path": "imagenes\\imagen15.jpg",
+      "old": true
+    },
+    {
+      "path": "imagenes\\imagen16.jpg",
+      "old": true
+    },
+    {
+      "path": "imagenes\\imagen17.jpg",
+      "old": true
+    },
+    {
+      "path": "imagenes\\imagen18.jpg",
+      "old": true
+    },
+    {
+      "path": "imagenes\\imagen19.jpg",
+      "old": true
+    },
+    {
+      "path": "imagenes\\imagen2.jpg",
+      "old": true
+    },
+    {
+      "path": "imagenes\\imagen20.jpg",
+      "old": true
+    },
+    {
+      "path": "imagenes\\imagen21.jpg",
+      "old": true
+    },
+    {
+      "path": "imagenes\\imagen22.jpg",
+      "old": true
+    },
+    {
+      "path": "imagenes\\imagen23.jpg",
+      "old": true
+    },
+    {
+      "path": "imagenes\\imagen24.jpg",
+      "old": true
+    },
+    {
+      "path": "imagenes\\imagen3.jpg",
+      "old": true
+    },
+    {
+      "path": "imagenes\\imagen4.jpg",
+      "old": true
+    },
+    {
+      "path": "imagenes\\imagen5.jpg",
+      "old": true
+    },
+    {
+      "path": "imagenes\\imagen6.jpg",
+      "old": true
+    },
+    {
+      "path": "imagenes\\imagen7.jpg",
+      "old": true
+    },
+    {
+      "path": "imagenes\\imagen8.jpg",
+      "old": true
+    },
+    {
+      "path": "imagenes\\imagen9.jpg",
+      "old": true
     },
     {
       "path": "index.html"
     },
     {
-      "path": "pagina2\\index.html"
+      "path": "pagina2\\index.html",
+      "old": true
     },
     {
       "path": "resources\\css\\retype.css"

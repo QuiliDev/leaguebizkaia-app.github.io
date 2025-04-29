@@ -5,13 +5,9 @@ branding:
   title: LeagueBizkaiaApp Documentación  # Título para la documentación
   label: Reto3  # Etiqueta adicional
 links:
-  - text: RetypeGuia de uso
-    link: https://retype.com/guides/getting-started/  # Enlace a la guía de uso de Retype
   - text: Documentación DB
-    link: /docs/db/index.html  # Enlace interno a la documentación de la base de datos
+    link: /database/index.html  # Enlace interno a la documentación de la base de datos
   - text: Documentación APP
-    link: /docs/app/index.html  # Enlace interno a la documentación de la app
-  - text: Entornos de desarrollo
-    link: /docs/test/index.html  # Enlace interno a la documentación de entornos de desarrollo
+    link: /app/index.html  # Enlace interno a la documentación de la app
 footer:
   copyright: "&copy; Copyright {{ year }}. All rights reserved."  # Pie de página con el copyright
