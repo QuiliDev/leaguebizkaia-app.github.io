@@ -35,7 +35,7 @@ Para instalar **LeagueBizkaiaAPP** en tu computadora, sigue estos pasos:
 1. **Descarga del Software**:
    - Descarga el archivo comprimido **LeagueBizkaiaAPP** desde el siguiente enlace:
 
-[!file Descargar LeagueBizkaiaAPP](../ficheros/Grupo2_LeagueBizkaiaAPP.zip)
+[!file Descargar LeagueBizkaiaAPP](./ficheros/Grupo2_LeagueBizkaiaAPP.zip)
 
 2. **Instalación**:
    - Extrae el contenido del archivo ZIP descargado en una carpeta de tu preferencia.
@@ -47,12 +47,12 @@ Para instalar **LeagueBizkaiaAPP** en tu computadora, sigue estos pasos:
    - Asegúrate de que la carpeta **img** y el archivo `usuarios.odb` se encuentren en la misma ubicación que el archivo **LeagueBizkaiaAPP.jar**. La carpeta **img** es esencial para el almacenamiento de las imágenes asociadas a los equipos y jugadores, mientras que **usuarios.obd** contiene las credenciales necesarias para acceder al sistema.
    - Ejecuta el archivo **LeagueBizkaiaAPP.jar**.
    - Si todo está bien configurado, verás el panel de inicio de sesión de la aplicación, donde podrás ingresar tus credenciales y comenzar a usar la app.
-![Ficheros](../ficheros/install.png)
+![Ficheros](./ficheros/install.png)
 
 ---
 
 ### **Credenciales**:
-![Login](../ficheros/login.png)
+![Login](./ficheros/login.png)
   - **Usuario**: `director`
   - **Contraseña**: `director`
   
@@ -66,7 +66,7 @@ Si las credenciales no son válidas o el archivo **usuarios.obd** falta, no podr
 ---
 
 ## **1. Gestión de Usuarios**
-![Panel Usuarios](../ficheros/panelusuarios.png)
+![Panel Usuarios](./ficheros/panelusuarios.png)
 
 En el **Panel de Usuarios**, los administradores pueden gestionar los usuarios registrados en el sistema. Las acciones disponibles son:
 
@@ -99,7 +99,7 @@ Una vez que un usuario ha sido creado, puedes modificar los siguientes detalles:
 
 ## **2. Gestión de Equipos**
 
-![Panel Equipos](../ficheros/panelequipos.png)
+![Panel Equipos](./ficheros/panelequipos.png)
 
    En este panel, puedes:
 
@@ -113,7 +113,7 @@ Una vez que un usuario ha sido creado, puedes modificar los siguientes detalles:
 ---
 
 ## **3. Gestión de Jugadores**
-![PanelJugadores](../ficheros/paneljugadores.png)
+![PanelJugadores](./ficheros/paneljugadores.png)
 En este panel, puedes:
 
 - **Crear Jugador**:
@@ -142,7 +142,7 @@ En este panel, puedes:
 ---
 
 ## **4. Fichar Jugador a Equipo**
-![Panel Selección de Jugadores](../ficheros/fichaje.png)
+![Panel Selección de Jugadores](./ficheros/fichaje.png)
 
 Para fichar jugadores, sigue estos pasos:
 
@@ -159,7 +159,7 @@ Aquí tienes la descripción mejorada y concisa del **Panel de Temporadas**:
 ---
 
 ## **5. Panel de Temporadas**
-![Panel Temporadas](../ficheros/paneltemporadas.png)
+![Panel Temporadas](./ficheros/paneltemporadas.png)
 
 En este panel, podrás gestionar las temporadas de la liga. Las opciones disponibles son:
 
@@ -187,7 +187,7 @@ Aquí tienes una descripción clara y concisa para la sección de **Introducció
 ---
 
 ## **6. Introducción de Resultados de Partidos**
-![Panel Clasificación](../ficheros/panelclasificiacion.png)
+![Panel Clasificación](./ficheros/panelclasificiacion.png)
 
 Para ingresar los resultados de los partidos de una temporada:
 
