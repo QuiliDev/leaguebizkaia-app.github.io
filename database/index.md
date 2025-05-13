@@ -622,30 +622,37 @@ __-- Llamadas para probar los procedimientos__
 
 ### Creación de procedimientos con cursores
     
-#### -- Procedimiento 15: Inserccion de un nuevo entrenador
+#### -- Procedimiento 15: listar equipos
 
 -- Código del Procedimiento:
 
 ```sql
 DELIMITER //
-CREATE PROCEDURE insertar_entrenador(
-    IN p_Entrenador_id INT,
-    IN p_Nombre VARCHAR(255),
-    IN p_DNI VARCHAR(10),
-    IN p_FechaNacimiento DATE,
-    IN p_ID_Equipo INT
-)
+CREATE PROCEDURE ListarEquipos()
 BEGIN
-    DECLARE EXIT HANDLER FOR SQLEXCEPTION
-    BEGIN
-        ROLLBACK;
-        SELECT 'Error al insertar el entrenador';
-    END;
-    START TRANSACTION;
-    INSERT INTO Entrenadores (Entrenador_id, Nombre, DNI, FechaNacimiento, ID_Equipo)
-    VALUES (p_Entrenador_id, p_Nombre, p_DNI, p_FechaNacimiento, p_ID_Equipo);
-    COMMIT;
-    SELECT 'Entrenador insertado correctamente';
+    DECLARE done INT DEFAULT 0;
+    DECLARE id INT;
+    DECLARE nombre VARCHAR(255);
+    DECLARE victorias INT;
+    DECLARE derrotas INT;
+    DECLARE total_puntos INT;
+    
+    DECLARE equipo_cursor CURSOR FOR
+    SELECT Equ_id, Equ_nombre, Equ_victorias, Equ_derrotas, Equ_puntos_totales FROM Equipos;
+    
+    DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;
+    
+    OPEN equipo_cursor;
+    read_loop: LOOP
+        FETCH equipo_cursor INTO id, nombre, victorias, derrotas, total_puntos;
+        IF done THEN
+            LEAVE read_loop;
+        END IF;
+        
+        SELECT id, nombre, victorias, derrotas, total_puntos;
+    END LOOP;
+    
+    CLOSE equipo_cursor;
 END //
 DELIMITER ;
 ```
@@ -654,23 +661,35 @@ __-- Llamadas para probar los procedimientos__
 ![Texto alternativo](./imagenes/imagen12.jpg)
 
 
-#### -- Procedimiento 16: Borrado de un entrenador
+#### -- Procedimiento 16: listar temporadas
 
 -- Código del Procedimiento:
 
 ```sql
 DELIMITER //
-CREATE PROCEDURE borrar_entrenador(IN p_Entrenador_id INT)
+CREATE PROCEDURE ListarTemporadas()
 BEGIN
-    DECLARE EXIT HANDLER FOR SQLEXCEPTION
-    BEGIN
-        ROLLBACK;
-        SELECT 'Error al borrar el entrenador';
-    END;
-    START TRANSACTION;
-    DELETE FROM Entrenadores WHERE Entrenador_id = p_Entrenador_id;
-    COMMIT;
-    SELECT 'Entrenador borrado correctamente';
+    DECLARE done INT DEFAULT 0;
+    DECLARE id INT;
+    DECLARE nombre VARCHAR(255);
+    DECLARE cantidad_equipos INT;
+    
+    DECLARE temporada_cursor CURSOR FOR
+    SELECT Tem_id, Tem_nombre, Tem_cantidad_equipos FROM Temporadas;
+    
+    DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;
+    
+    OPEN temporada_cursor;
+    read_loop: LOOP
+        FETCH temporada_cursor INTO id, nombre, cantidad_equipos;
+        IF done THEN
+            LEAVE read_loop;
+        END IF;
+        
+        SELECT id, nombre, cantidad_equipos;
+    END LOOP;
+    
+    CLOSE temporada_cursor;
 END //
 DELIMITER ;
 ```
@@ -685,28 +704,59 @@ __-- Llamadas para probar los procedimientos__
 
 ```sql
 DELIMITER //
-CREATE PROCEDURE modificar_resultado_partido(
-    IN p_Par_id INT,
-    IN p_Par_goles_loc SMALLINT UNSIGNED,
-    IN p_Par_puntos_loc SMALLINT UNSIGNED,
-    IN p_Par_goles_vis SMALLINT UNSIGNED,
-    IN p_Par_puntos_vis SMALLINT UNSIGNED
-)
+CREATE PROCEDURE ListarTemporadas()
 BEGIN
-    DECLARE EXIT HANDLER FOR SQLEXCEPTION
-    BEGIN
-        ROLLBACK;
-        SELECT 'Error al modificar el resultado del partido';
-    END;
-    START TRANSACTION;
-    UPDATE Partidos 
-    SET Par_goles_loc = p_Par_goles_loc, 
-        Par_puntos_loc = p_Par_puntos_loc, 
-        Par_goles_vis = p_Par_goles_vis, 
-        Par_puntos_vis = p_Par_puntos_vis 
-    WHERE Par_id = p_Par_id;
-    COMMIT;
-    SELECT 'Resultado del partido modificado correctamente';
+    DECLARE done INT DEFAULT 0;
+    DECLARE id INT;
+    DECLARE nombre VARCHAR(255);
+    DECLARE cantidad_equipos INT;
+    
+    DECLARE temporada_cursor CURSOR FOR
+    SELECT Tem_id, Tem_nombre, Tem_cantidad_equipos FROM Temporadas;
+    
+    DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;
+    
+    OPEN temporada_cursor;
+    read_loop: LOOP
+        FETCH temporada_cursor INTO id, nombre, cantidad_equipos;
+        IF done THEN
+            LEAVE read_loop;
+        END IF;
+        
+        SELECT id, nombre, cantidad_equipos;
+    END LOOP;
+    
+    CLOSE temporada_cursor;
+END //
+DELIMITER ;
+
+-- Procedimiento 3: Consulta compleja con JOIN - Mostrar los máximos goleadores de cada equipo
+DELIMITER //
+CREATE PROCEDURE MaximosGoleadores()
+BEGIN
+    DECLARE done INT DEFAULT 0;
+    DECLARE equipo_nombre VARCHAR(255);
+    DECLARE jugador_nombre VARCHAR(255);
+    DECLARE goles INT;
+    
+    DECLARE cursor_goleadores CURSOR FOR
+    SELECT e.Equ_nombre, j.Jug_nombre_completo, j.Jug_dorsal FROM Jugadores j
+    JOIN Equipos e ON j.Jug_id_equipo = e.Equ_id
+    WHERE j.Jug_dorsal = (SELECT MAX(Jug_dorsal) FROM Jugadores WHERE Jug_id_equipo = e.Equ_id);
+    
+    DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;
+    
+    OPEN cursor_goleadores;
+    read_loop: LOOP
+        FETCH cursor_goleadores INTO equipo_nombre, jugador_nombre, goles;
+        IF done THEN
+            LEAVE read_loop;
+        END IF;
+        
+        SELECT equipo_nombre, jugador_nombre, goles;
+    END LOOP;
+    
+    CLOSE cursor_goleadores;
 END //
 DELIMITER ;
 ```
