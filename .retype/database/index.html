@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.6.0.799281783287">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.6.0.800437321966">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.6.0">
@@ -32,12 +32,12 @@
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../resources/css/retype.css?v=3.6.0.799281783287" rel="stylesheet">
+    <link href="../resources/css/retype.css?v=3.6.0.800437321966" rel="stylesheet">
 
-    <script data-cfasync="false" src="../resources/js/config.js?v=3.6.0.799281783287" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../resources/js/config.js?v=3.6.0.800437321966" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../resources/js/retype.js?v=3.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.6.0.799281783287" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../resources/js/prism.js?v=3.6.0.799281783287" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.6.0.800437321966" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../resources/js/prism.js?v=3.6.0.800437321966" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -922,33 +922,40 @@ DELIMITER ;</code></pre>
         <span>Creación de procedimientos con cursores</span>
     </h3>
 </doc-anchor-target>
-<doc-anchor-target id="---procedimiento-15-inserccion-de-un-nuevo-entrenador">
+<doc-anchor-target id="---procedimiento-15-listar-equipos">
     <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#---procedimiento-15-inserccion-de-un-nuevo-entrenador">#</doc-anchor-trigger>
-        <span>-- Procedimiento 15: Inserccion de un nuevo entrenador</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#---procedimiento-15-listar-equipos">#</doc-anchor-trigger>
+        <span>-- Procedimiento 15: listar equipos</span>
     </h4>
 </doc-anchor-target>
 <p>-- Código del Procedimiento:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-sql"><code v-pre class="language-sql">DELIMITER //
-CREATE PROCEDURE insertar_entrenador(
-    IN p_Entrenador_id INT,
-    IN p_Nombre VARCHAR(255),
-    IN p_DNI VARCHAR(10),
-    IN p_FechaNacimiento DATE,
-    IN p_ID_Equipo INT
-)
+CREATE PROCEDURE ListarEquipos()
 BEGIN
-    DECLARE EXIT HANDLER FOR SQLEXCEPTION
-    BEGIN
-        ROLLBACK;
-        SELECT 'Error al insertar el entrenador';
-    END;
-    START TRANSACTION;
-    INSERT INTO Entrenadores (Entrenador_id, Nombre, DNI, FechaNacimiento, ID_Equipo)
-    VALUES (p_Entrenador_id, p_Nombre, p_DNI, p_FechaNacimiento, p_ID_Equipo);
-    COMMIT;
-    SELECT 'Entrenador insertado correctamente';
+    DECLARE done INT DEFAULT 0;
+    DECLARE id INT;
+    DECLARE nombre VARCHAR(255);
+    DECLARE victorias INT;
+    DECLARE derrotas INT;
+    DECLARE total_puntos INT;
+    
+    DECLARE equipo_cursor CURSOR FOR
+    SELECT Equ_id, Equ_nombre, Equ_victorias, Equ_derrotas, Equ_puntos_totales FROM Equipos;
+    
+    DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;
+    
+    OPEN equipo_cursor;
+    read_loop: LOOP
+        FETCH equipo_cursor INTO id, nombre, victorias, derrotas, total_puntos;
+        IF done THEN
+            LEAVE read_loop;
+        END IF;
+        
+        SELECT id, nombre, victorias, derrotas, total_puntos;
+    END LOOP;
+    
+    CLOSE equipo_cursor;
 END //
 DELIMITER ;</code></pre>
 </doc-codeblock></div>
@@ -958,26 +965,38 @@ DELIMITER ;</code></pre>
     <figcaption class="caption">Texto alternativo</figcaption>
 </figure>
 </p>
-<doc-anchor-target id="---procedimiento-16-borrado-de-un-entrenador-1">
+<doc-anchor-target id="---procedimiento-16-listar-temporadas">
     <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#---procedimiento-16-borrado-de-un-entrenador-1">#</doc-anchor-trigger>
-        <span>-- Procedimiento 16: Borrado de un entrenador</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#---procedimiento-16-listar-temporadas">#</doc-anchor-trigger>
+        <span>-- Procedimiento 16: listar temporadas</span>
     </h4>
 </doc-anchor-target>
 <p>-- Código del Procedimiento:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-sql"><code v-pre class="language-sql">DELIMITER //
-CREATE PROCEDURE borrar_entrenador(IN p_Entrenador_id INT)
+CREATE PROCEDURE ListarTemporadas()
 BEGIN
-    DECLARE EXIT HANDLER FOR SQLEXCEPTION
-    BEGIN
-        ROLLBACK;
-        SELECT 'Error al borrar el entrenador';
-    END;
-    START TRANSACTION;
-    DELETE FROM Entrenadores WHERE Entrenador_id = p_Entrenador_id;
-    COMMIT;
-    SELECT 'Entrenador borrado correctamente';
+    DECLARE done INT DEFAULT 0;
+    DECLARE id INT;
+    DECLARE nombre VARCHAR(255);
+    DECLARE cantidad_equipos INT;
+    
+    DECLARE temporada_cursor CURSOR FOR
+    SELECT Tem_id, Tem_nombre, Tem_cantidad_equipos FROM Temporadas;
+    
+    DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;
+    
+    OPEN temporada_cursor;
+    read_loop: LOOP
+        FETCH temporada_cursor INTO id, nombre, cantidad_equipos;
+        IF done THEN
+            LEAVE read_loop;
+        END IF;
+        
+        SELECT id, nombre, cantidad_equipos;
+    END LOOP;
+    
+    CLOSE temporada_cursor;
 END //
 DELIMITER ;</code></pre>
 </doc-codeblock></div>
@@ -996,28 +1015,59 @@ DELIMITER ;</code></pre>
 <p>-- Código del Procedimiento:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-sql"><code v-pre class="language-sql">DELIMITER //
-CREATE PROCEDURE modificar_resultado_partido(
-    IN p_Par_id INT,
-    IN p_Par_goles_loc SMALLINT UNSIGNED,
-    IN p_Par_puntos_loc SMALLINT UNSIGNED,
-    IN p_Par_goles_vis SMALLINT UNSIGNED,
-    IN p_Par_puntos_vis SMALLINT UNSIGNED
-)
+CREATE PROCEDURE ListarTemporadas()
 BEGIN
-    DECLARE EXIT HANDLER FOR SQLEXCEPTION
-    BEGIN
-        ROLLBACK;
-        SELECT 'Error al modificar el resultado del partido';
-    END;
-    START TRANSACTION;
-    UPDATE Partidos 
-    SET Par_goles_loc = p_Par_goles_loc, 
-        Par_puntos_loc = p_Par_puntos_loc, 
-        Par_goles_vis = p_Par_goles_vis, 
-        Par_puntos_vis = p_Par_puntos_vis 
-    WHERE Par_id = p_Par_id;
-    COMMIT;
-    SELECT 'Resultado del partido modificado correctamente';
+    DECLARE done INT DEFAULT 0;
+    DECLARE id INT;
+    DECLARE nombre VARCHAR(255);
+    DECLARE cantidad_equipos INT;
+    
+    DECLARE temporada_cursor CURSOR FOR
+    SELECT Tem_id, Tem_nombre, Tem_cantidad_equipos FROM Temporadas;
+    
+    DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;
+    
+    OPEN temporada_cursor;
+    read_loop: LOOP
+        FETCH temporada_cursor INTO id, nombre, cantidad_equipos;
+        IF done THEN
+            LEAVE read_loop;
+        END IF;
+        
+        SELECT id, nombre, cantidad_equipos;
+    END LOOP;
+    
+    CLOSE temporada_cursor;
+END //
+DELIMITER ;
+
+-- Procedimiento 3: Consulta compleja con JOIN - Mostrar los máximos goleadores de cada equipo
+DELIMITER //
+CREATE PROCEDURE MaximosGoleadores()
+BEGIN
+    DECLARE done INT DEFAULT 0;
+    DECLARE equipo_nombre VARCHAR(255);
+    DECLARE jugador_nombre VARCHAR(255);
+    DECLARE goles INT;
+    
+    DECLARE cursor_goleadores CURSOR FOR
+    SELECT e.Equ_nombre, j.Jug_nombre_completo, j.Jug_dorsal FROM Jugadores j
+    JOIN Equipos e ON j.Jug_id_equipo = e.Equ_id
+    WHERE j.Jug_dorsal = (SELECT MAX(Jug_dorsal) FROM Jugadores WHERE Jug_id_equipo = e.Equ_id);
+    
+    DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;
+    
+    OPEN cursor_goleadores;
+    read_loop: LOOP
+        FETCH cursor_goleadores INTO equipo_nombre, jugador_nombre, goles;
+        IF done THEN
+            LEAVE read_loop;
+        END IF;
+        
+        SELECT equipo_nombre, jugador_nombre, goles;
+    END LOOP;
+    
+    CLOSE cursor_goleadores;
 END //
 DELIMITER ;</code></pre>
 </doc-codeblock></div>
